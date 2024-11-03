@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        /* Gaya dasar untuk body */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Gaya untuk kontainer */
+        .container {
+            background-color: white;
+            padding: 40px;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Animasi fade-in */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* Gaya untuk teks paragraf */
+        p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Gaya untuk form */
+        form {
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Gaya untuk kontainer tombol */
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Gaya tombol submit */
+        button,
+        .button-container a {
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover,
+        .button-container a:hover {
+            background: linear-gradient(135deg, #5d0eb3, #1e63cc);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About Us</h1>
+        <p>Selamat datang di halaman About. Di sini, Anda dapat mengetahui lebih banyak tentang kami dan apa yang kami lakukan.</p>
+        <p>Ini adalah proyek sederhana untuk memahami lebih dalam tentang manajemen file dan pengembangan web.</p>
+
+        <!-- Form untuk mengisi nama, deskripsi, dan upload file -->
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+
+            <label for="description">Deskripsi:</label>
+            <textarea id="description" name="description" placeholder="Tuliskan deskripsi Anda..." required></textarea>
+
+            <label for="file">Upload File (Max 3GB):</label>
+            <input type="file" id="file" name="file" accept=".pdf,.doc,.docx,.txt" required>
+
+            <div class="button-container">
+                <button type="submit">Submit</button>
+                <a href="/">Kembali ke Home</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html> 

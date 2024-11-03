@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Font dasar untuk halaman */
+            background-color: #f4f4f4; /* Warna latar belakang */
+            margin: 0; /* Menghapus margin default */
+            padding: 0; /* Menghapus padding default */
+        }
+
+        .profile-container {
+            background: white; /* Warna latar belakang kontainer */
+            padding: 20px; /* Ruang di dalam kontainer */
+            border-radius: 10px; /* Sudut yang membulat */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
+            max-width: 400px; /* Lebar maksimum kontainer */
+            margin: 20px auto; /* Margin otomatis untuk memusatkan kontainer */
+            text-align: center; /* Memusatkan teks dalam kontainer */
+        }
+
+        h2 {
+            color: #333; /* Warna untuk judul */
+        }
+
+        p {
+            color: #666; /* Warna untuk teks paragraf */
+        }
+
+        a {
+            color: #4CAF50; /* Warna untuk tautan */
+            text-decoration: none; /* Menghilangkan garis bawah pada tautan */
+            margin: 0 10px; /* Ruang horizontal antara tautan */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Garis bawah saat tautan di-hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Welcome, <%= user.username %></h2>
+        <p>Email: <%= user.email %></p>
+        <a href="/auth/logout">Logout</a> | 
+        <a href="/about">Ur Diary</a> | 
+        <a href="/contact">Ur Secret</a> <!-- Tambah link ke halaman lain -->
+    </div>
+</body>
+</html>

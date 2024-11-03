@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ur Secret</title>
+    <style>
+        /* Gaya untuk body */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #8e2de2, #4a00e0);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Gaya untuk header */
+        header {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #fff;
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Gaya untuk kontainer pesan */
+        #message {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #message h2 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        #message p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Gaya untuk input textarea */
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            resize: vertical;
+        }
+
+        /* Gaya untuk tombol */
+        a, button {
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        a:hover, button:hover {
+            background: linear-gradient(135deg, #ff4b2b, #ff416c);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header dengan background color -->
+    <header>
+        <h1>Ur Secret</h1>
+    </header>
+
+    <div id="message">
+        <h2>Pesan Rahasia</h2>
+        <p id="about-text"></p>
+        <textarea id="about-input" placeholder="Tulis pesan rahasia Anda di sini..."></textarea>
+        <button onclick="saveSecret()">Simpan Pesan</button>
+    </div>
+
+    <a href="/">Kembali Ke Profil</a>
+
+    <script>
+        // Load the secret note from local storage on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedAbout = localStorage.getItem('aboutInfo');
+            if (savedAbout) {
+                document.getElementById('about-text').textContent = savedAbout;
+                document.getElementById('about-input').value = savedAbout;
+            } else {
+                document.getElementById('about-text').textContent = "Tidak ada pesan rahasia yang disimpan.";
+            }
+        });
+
+        // Function to save the secret message to local storage
+        function saveSecret() {
+            const aboutInput = document.getElementById('about-input').value;
+            localStorage.setItem('aboutInfo', aboutInput);
+            document.getElementById('about-text').textContent = aboutInput || "Tidak ada pesan rahasia yang disimpan.";
+            alert('Pesan rahasia berhasil disimpan!');
+        }
+    </script>
+</body>
+</html>
